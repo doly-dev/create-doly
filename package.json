@@ -1,0 +1,44 @@
+{
+  "name": "create-doly",
+  "version": "0.0.1",
+  "description": "Creates anythings for doly-cli by the command line.",
+  "bin": {
+    "create-doly": "bin/index.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doly-dev/create-doly.git"
+  },
+  "keywords": [
+    "create-doly",
+    "doly",
+    "cli"
+  ],
+  "author": "Neo_Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doly-dev/create-doly/issues"
+  },
+  "homepage": "https://github.com/doly-dev/create-doly#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "cli-table": "^0.3.1",
+    "clipboardy": "^1.2.3",
+    "commander": "^2.19.0",
+    "debug": "^3.1.0",
+    "download-git-repo": "^1.1.0",
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.1",
+    "inquirer": "^6.2.1",
+    "is-plain-object": "^2.0.4",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.2.0",
+    "semver": "^5.5.1"
+  }
+}
