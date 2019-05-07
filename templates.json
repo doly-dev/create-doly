@@ -1,6 +1,6 @@
 {
   "simple": {
-    "owner/name": "doly-dev/doly-cli",
+    "owner/name": "doly-dev/simple-template",
     "description": "Basic, simple and general.",
     "homePage": "https://doly-dev.github.io/"
   }
