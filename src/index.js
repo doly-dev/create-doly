@@ -14,7 +14,7 @@ program
 
 program
     .command('list')
-    .alias('l')
+    .alias('ls')
     .description('展示项目当前脚手架列表')
     .action(function () {
       require('./list');

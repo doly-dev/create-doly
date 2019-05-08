@@ -21,7 +21,7 @@ npm install create-doly
 
 
   Commands:
-    list|l     List all the templates
+    list|ls     List all the templates
 
   Options:
 
@@ -30,7 +30,7 @@ npm install create-doly
 ```
 
 
-### list | l
+### list | ls
 
 ```bash
 ┌───────────────┬───────────────────┬────────────────────────────┬─────────────────────────────┐

@@ -3,5 +3,15 @@
     "owner/name": "doly-dev/doly-simple-template",
     "description": "Basic, simple and general.",
     "homePage": "https://doly-dev.github.io/"
+  },
+  "wonderui": {
+    "owner/name": "doly-dev/doly-wonderui-template",
+    "description": "wonderui.",
+    "homePage": "https://doly-dev.github.io/"
+  },
+  "antd-mobile": {
+    "owner/name": "doly-dev/doly-antdmobile-template",
+    "description": "antd-mobile.",
+    "homePage": "https://doly-dev.github.io/"
   }
 }
