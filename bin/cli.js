@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const semver = require('semver');
 const pkg = require('../package.json');
 const chalk = require('chalk');
@@ -17,7 +19,7 @@ program
     .alias('ls')
     .description('展示项目当前脚手架列表')
     .action(function () {
-      require('./list');
+      require('../src/list');
     });
 
 // TODO 增加自定义扩展列表
@@ -43,7 +45,7 @@ program
 program.parse(process.argv);
 
 if(!program.args.length){
-  require('./run')();
+  require('../src/run')();
 } else if(process.argv[2] !== 'add' && process.argv[2] !== 'list' && process.argv[2] !== 'remove' ) {
 
 }

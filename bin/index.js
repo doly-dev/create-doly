@@ -1,5 +1,5 @@
-#!/usr/bin/env node
+const run = require('../src/run');
+const list = require('../src/list');
 
-const createDoly = require('../src/index.js');
-
-module.exports.createDoly = createDoly;
+module.exports.run = run;
+module.exports.list = list;
