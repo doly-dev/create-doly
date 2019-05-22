@@ -19,7 +19,7 @@ program
     .alias('ls')
     .description('展示项目当前脚手架列表')
     .action(function () {
-      require('../src/list');
+      require('../src/list')();
     });
 
 // TODO 增加自定义扩展列表

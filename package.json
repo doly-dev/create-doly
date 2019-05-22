@@ -1,6 +1,6 @@
 {
   "name": "create-doly",
-  "version": "0.0.7",
+  "version": "0.0.11",
   "description": "Creates anythings for doly-cli by the command line.",
   "bin": {
     "create-doly": "bin/cli.js"
@@ -41,9 +41,5 @@
     "ora": "^3.2.0",
     "semver": "^5.5.1",
     "shelljs": "^0.8.3"
-  },
-  "files": [
-    "bin",
-    "src"
-  ]
+  }
 }
