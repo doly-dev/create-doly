@@ -1,6 +1,6 @@
 {
   "name": "create-doly",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Creates anythings for doly-cli by the command line.",
   "bin": {
     "create-doly": "bin/cli.js"
