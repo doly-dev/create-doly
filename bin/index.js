@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../src/index.js');
+const createDoly = require('../src/index.js');
+
+module.exports.run = createDoly;

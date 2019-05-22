@@ -2,7 +2,7 @@ const Table = require('cli-table');
 const chalk = require('chalk');
 
 const table = new Table({
-  head: ['Template Name', 'Owner/Name','Description', 'HomePage'],
+  head: ['Template Name', 'Owner/Name','Description'],
   style: {
     head: ['green']
   }
@@ -12,7 +12,7 @@ function listTable (tplList, lyric) {
   const list = Object.keys(tplList);
   if (list.length) {
     list.forEach((key) => {
-      table.push([key, tplList[key]['owner/name'], tplList[key]['description'],tplList[key]['homePage']]);
+      table.push([key, tplList[key]['owner/name'], tplList[key]['description']]);
       if (table.length === list.length) {
         console.log(table.toString());
         if (lyric) {
