@@ -11,7 +11,7 @@ let tplList = require(`${__dirname}/../templates`);
 
 
 const templateList = Object.keys(tplList).map(sca=>sca);
-let optionsList = ['remote'];
+let optionsList = [];
 
 optionsList = templateList.concat(optionsList);
 
