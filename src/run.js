@@ -77,7 +77,7 @@ function checkDirectory(appPath,appName) {
     console.log();
     console.error(chalk.red('Please empty folders for this operation or introduced to the project name.'));
     console.log();
-    return;
+    process.exit(0);
   }
 }
 
