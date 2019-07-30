@@ -1,5 +1,6 @@
 const fs = require('fs');
 const isPlainObject = require('is-plain-object');
+const jsonFormat = require('json-format');
 
 // todo 支持递归
 module.exports = function (jsonFile, options) {
@@ -25,7 +26,10 @@ module.exports = function (jsonFile, options) {
           json[prop] = options[prop];
         }
 
-        const str = JSON.stringify(json);
+        const str = jsonFormat(json, {
+          type: 'space',
+          size: 2
+        });
 
         fs.writeFile(jsonFile, str, function(err){
           if(err){
