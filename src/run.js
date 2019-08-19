@@ -104,10 +104,10 @@ function run() {
               console.log(`Success!`);
               console.log('Inside that directory, you can run several commands:');
               console.log();
-              console.log(chalk.cyan(`  doly dev`));
+              console.log(chalk.cyan(`  npm start`));
               console.log('    Starts the development server.');
               console.log();
-              console.log(chalk.cyan(`  doly build`));
+              console.log(chalk.cyan(`  npm run build`));
               console.log('    Bundles the app into output files "dist" for production.');
               console.log();
             });
@@ -136,10 +136,10 @@ function run() {
               console.log(`Success!`);
               console.log('Inside that directory, you can run several commands:');
               console.log();
-              console.log(chalk.cyan(`  doly dev`));
+              console.log(chalk.cyan(`  npm start`));
               console.log('    Starts the development server.');
               console.log();
-              console.log(chalk.cyan(`  doly build`));
+              console.log(chalk.cyan(`  npm run build`));
               console.log('    Bundles the app into output files "dist" for production.');
               console.log();
             });

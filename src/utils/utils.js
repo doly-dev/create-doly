@@ -4,7 +4,7 @@ const changeJsonfile = require('./changeJsonfile');
 
 
 function findNpm() {
-  const npms = ['tnpm', 'cnpm', 'npm'];
+  const npms = ['npm', 'tnpm', 'cnpm'];
   for (let i = 0; i < npms.length; i++) {
     try {
       which.sync(npms[i]);
