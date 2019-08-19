@@ -31,8 +31,12 @@ function isEmptyDirectory(directoryName) {
 
   if(dirList.length === 0){
     return true;
-  }else if(dirList.length === 1 && dirList[0].toLowerCase() === '.ds_store'){
-    return true;
+  }else if(dirList.length === 1){
+    if(dirList[0].toLowerCase() === '.ds_store' || dirList[0].toLowerCase() === '.git'){
+      return true;
+    }else{
+      return false;
+    }
   }else{
     return false;
   }
