@@ -22,30 +22,37 @@ function isDirectory(directoryName) {
 }
 
 function isEmptyDirectory(directoryName) {
-  if(!isDirectory(directoryName)){
+  if (!isDirectory(directoryName)) {
     console.error(`Folder does not exist.`);
     return;
   }
 
   const dirList = fs.readdirSync(directoryName);
 
-  if(dirList.length === 0){
+  if (dirList.length === 0) {
     return true;
-  }else if(dirList.length === 1){
-    if(dirList[0].toLowerCase() === '.ds_store' || dirList[0].toLowerCase() === '.git'){
+  } else if (dirList.length === 1) {
+    if (dirList[0].toLowerCase() === '.ds_store' || dirList[0].toLowerCase() === '.git') {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (dirList.length === 2) {
+    const tmpLowerCaseDirList = dirList.map(item => item.toLowerCase());
+    if(tmpLowerCaseDirList.indexOf('.ds_store') > -1 && tmpLowerCaseDirList.indexOf('.git') > -1){
       return true;
     }else{
       return false;
     }
-  }else{
+  } else {
     return false;
   }
 }
 
 function changePackageJsonName(appPath, appName) {
-  return new Promise(resolve=>{
+  return new Promise(resolve => {
     const pkgFile = `${appPath}/package.json`;
-    if(fs.existsSync(pkgFile) && appName){
+    if (fs.existsSync(pkgFile) && appName) {
       changeJsonfile(pkgFile, {
         name: appName
       });
@@ -54,4 +61,4 @@ function changePackageJsonName(appPath, appName) {
   });
 }
 
-module.exports =  {findNpm,isDirectory,isEmptyDirectory,changePackageJsonName };
+module.exports = { findNpm, isDirectory, isEmptyDirectory, changePackageJsonName };
