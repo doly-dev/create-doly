@@ -6,5 +6,9 @@
   "mobile": {
     "owner/name": "doly-dev/doly-mobile-template",
     "description": "Mobile App Template."
+  },
+  "admin": {
+    "owner/name": "doly-dev/doly-admin-template",
+    "description": "Management Platform Template."
   }
 }
