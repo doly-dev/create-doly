@@ -16,6 +16,23 @@ function findNpm() {
   throw new Error('Please install npm');
 }
 
+function findGit() {
+  const git = 'git';
+  try {
+    which.sync(git);
+    return git;
+  } catch (e) {
+
+  }
+  throw new Error('Please install git');
+}
+
+function hasGitFile(directoryName) {
+  const dirList = fs.readdirSync(directoryName);
+  const lowerCaseDirList = dirList.map(item => item.toLowerCase());
+  return lowerCaseDirList.indexOf('.git') > -1;
+}
+
 function isDirectory(directoryName) {
   const stat = fs.statSync(directoryName);
   return stat.isDirectory();
@@ -39,9 +56,9 @@ function isEmptyDirectory(directoryName) {
     }
   } else if (dirList.length === 2) {
     const tmpLowerCaseDirList = dirList.map(item => item.toLowerCase());
-    if(tmpLowerCaseDirList.indexOf('.ds_store') > -1 && tmpLowerCaseDirList.indexOf('.git') > -1){
+    if (tmpLowerCaseDirList.indexOf('.ds_store') > -1 && tmpLowerCaseDirList.indexOf('.git') > -1) {
       return true;
-    }else{
+    } else {
       return false;
     }
   } else {
@@ -61,4 +78,4 @@ function changePackageJsonName(appPath, appName) {
   });
 }
 
-module.exports = { findNpm, isDirectory, isEmptyDirectory, changePackageJsonName };
+module.exports = { findNpm, findGit, isDirectory, isEmptyDirectory, changePackageJsonName, hasGitFile };

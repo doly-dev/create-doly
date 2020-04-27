@@ -1,6 +1,6 @@
 {
   "name": "create-doly",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Creates anythings for doly-cli by the command line.",
   "bin": {
     "create-doly": "bin/cli.js"
@@ -20,7 +20,6 @@
     "doly",
     "cli"
   ],
-  "author": "Neo_Huang",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/doly-dev/create-doly/issues"
