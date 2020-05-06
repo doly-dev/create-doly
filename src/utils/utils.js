@@ -16,23 +16,6 @@ function findNpm() {
   throw new Error('Please install npm');
 }
 
-function findGit() {
-  const git = 'git';
-  try {
-    which.sync(git);
-    return git;
-  } catch (e) {
-
-  }
-  throw new Error('Please install git');
-}
-
-function hasGitFile(directoryName) {
-  const dirList = fs.readdirSync(directoryName);
-  const lowerCaseDirList = dirList.map(item => item.toLowerCase());
-  return lowerCaseDirList.indexOf('.git') > -1;
-}
-
 function isDirectory(directoryName) {
   const stat = fs.statSync(directoryName);
   return stat.isDirectory();
@@ -78,4 +61,4 @@ function changePackageJsonName(appPath, appName) {
   });
 }
 
-module.exports = { findNpm, findGit, isDirectory, isEmptyDirectory, changePackageJsonName, hasGitFile };
+module.exports = { findNpm, isDirectory, isEmptyDirectory, changePackageJsonName };

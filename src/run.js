@@ -6,7 +6,8 @@ const shell = require('shelljs');
 const ora = require('ora');
 
 const gitDownload = require(`${__dirname}/utils/gitDownload`);
-const { findNpm, findGit, isEmptyDirectory, changePackageJsonName, hasGitFile } = require(`${__dirname}/utils/utils`);
+const gitInit = require(`${__dirname}/utils/gitInit`);
+const { findNpm, isEmptyDirectory, changePackageJsonName } = require(`${__dirname}/utils/utils`);
 let tplList = require(`${__dirname}/../templates`);
 
 
@@ -81,17 +82,6 @@ function checkDirectory(appPath, appName) {
   }
 }
 
-function initGit(appPath) {
-  return new Promise(resolve => {
-    if (!hasGitFile(appPath)) {
-      const git = findGit();
-      shell.exec(`${git} init`, resolve);
-    } else {
-      resolve();
-    }
-  });
-}
-
 async function run() {
   const { appName, isCreateDirectory } = await prompt(question);
 
@@ -113,10 +103,11 @@ async function run() {
 
   checkDirectory(appPath, project);
 
-  await initGit(appPath);
-
-  gitDownload(gitPlace, appPath).then((res) => {
+  gitDownload(gitPlace, appPath).then(async (res) => {
     console.log(chalk.green(res));
+
+    await gitInit(appPath);
+
     changePackageJsonName(appPath, project).then(() => {
       const npm = findNpm();
 
