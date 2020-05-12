@@ -1,32 +1,40 @@
-const fs = require('fs-extra');
-const which = require('which');
-const shell = require('shelljs');
+const execSync = require('child_process').execSync;
 
-function findGit() {
-  const git = 'git';
+function isInGitRepository(appPath) {
   try {
-    which.sync(git);
-    return git;
+    execSync(`cd ${appPath} && git rev-parse --is-inside-work-tree`, { stdio: 'ignore' });
+    return true;
   } catch (e) {
-
+    return false;
   }
-  throw new Error('Please install git');
 }
 
-function hasGitFile(directoryName) {
-  const dirList = fs.readdirSync(directoryName);
-  const lowerCaseDirList = dirList.map(item => item.toLowerCase());
-  return lowerCaseDirList.indexOf('.git') > -1;
+function tryGitInit(appPath){
+  let didInit = false;
+
+  try {
+    execSync('git --version', { stdio: 'ignore' });
+    if (isInGitRepository(appPath)) {
+      return false;
+    }
+
+    execSync(`cd ${appPath} && git init`, { stdio: 'ignore' });
+    didInit = true;
+
+    execSync(`cd ${appPath} && git add -A`, { stdio: 'ignore' });
+    execSync(`cd ${appPath} && git commit -m "Initial commit from doly app"`, {
+      stdio: 'ignore',
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function initGit(appPath) {
   return new Promise(resolve => {
-    if (!hasGitFile(appPath)) {
-      const git = findGit();
-      shell.exec(`cd ${appPath} && ${git} init`, resolve);
-    } else {
-      resolve();
-    }
+    tryGitInit(appPath);
+    resolve();
   });
 }
 
