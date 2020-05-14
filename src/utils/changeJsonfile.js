@@ -31,7 +31,7 @@ module.exports = function (jsonFile, options) {
           size: 2
         });
 
-        fs.writeFile(jsonFile, str, function(err){
+        fs.writeFile(jsonFile, str+'\n', function(err){
           if(err){
               console.error(err);
               reject(err);
