@@ -55,9 +55,10 @@ function changePackageJsonName(appPath, appName) {
     if (fs.existsSync(pkgFile) && appName) {
       changeJsonfile(pkgFile, {
         name: appName
-      });
+      }).then(resolve);
+    }else{
+      resolve();
     }
-    resolve();
   });
 }
 

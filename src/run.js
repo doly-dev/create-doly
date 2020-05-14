@@ -103,12 +103,13 @@ async function run() {
 
   checkDirectory(appPath, project);
 
-  gitDownload(gitPlace, appPath).then(async (res) => {
+  gitDownload(gitPlace, appPath).then((res) => {
     console.log(chalk.green(res));
 
-    await gitInit(appPath);
+    changePackageJsonName(appPath, project).then(async () => {
 
-    changePackageJsonName(appPath, project).then(() => {
+      await gitInit(appPath);
+
       const npm = findNpm();
 
       const spinnerInstall = ora(`${npm} installing...`);
